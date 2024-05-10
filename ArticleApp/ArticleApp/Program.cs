@@ -67,7 +67,7 @@ app.MapAdditionalIdentityEndpoints();
 
 app.Run();
 
-// 게시판 관련 의존성 주입 관련 코드만 따로 모아서 관리
+// 게시판 관련 의존성(종속성) 주입 관련 코드만 따로 모아서 관리
 static void AddDependencyInjectionContainerForArticles(WebApplicationBuilder builder, string connectionString)
 {
     // 유저가 만든 DbContext 주입
