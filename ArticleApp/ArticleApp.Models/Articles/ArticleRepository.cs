@@ -16,7 +16,7 @@ namespace ArticleApp.Models.Articles
         }
 
         // Add
-        public async Task<Article> AddArticleAsyn(Article model)
+        public async Task<Article> AddArticleAsync(Article model)
         {
             _context.Articles.Add(model);
             await _context.SaveChangesAsync();

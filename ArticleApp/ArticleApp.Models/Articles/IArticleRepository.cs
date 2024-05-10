@@ -7,7 +7,7 @@ namespace ArticleApp.Models.Articles
     /// </summary>
     public interface IArticleRepository
     {
-        Task<Article> AddArticleAsyn(Article model); // 입력 
+        Task<Article> AddArticleAsync(Article model); // 입력 
         Task<List<Article>> GetArticlesAsync();         // 출력
         Task<Article> GetArticleByIdAsync(int id);       // 상세
         Task<Article> EditArticleAsync(Article model);    // 수정
