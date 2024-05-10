@@ -1,9 +1,7 @@
-﻿
-
-using Dul.Domain.Common;
+﻿using Dul.Domain.Common;
 using System.ComponentModel.DataAnnotations;
 
-namespace ArticleApp.Models
+namespace ArticleApp.Models.Articles
 {
     /// <summary>
     /// 게시판(Article) 모델 클래스: Articles 테이블과 일대일로 매핑

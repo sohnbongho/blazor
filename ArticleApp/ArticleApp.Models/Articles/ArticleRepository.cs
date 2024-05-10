@@ -1,40 +1,75 @@
-﻿
-using Dul.Domain.Common;
+﻿using Dul.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 
-namespace ArticleApp.Models
+namespace ArticleApp.Models.Articles
 {
     /// <summary>
     /// Repository Class: ADO.net 또는 Dapper 또는 Entity Framework Core
     /// </summary>
     public class ArticleRepository : IArticleRepository
     {
-        public Task<Article> AddArticleAsyn(Article article)
+        private readonly ArticleAppDbContext _context;
+
+        public ArticleRepository(ArticleAppDbContext context)
         {
-            throw new NotImplementedException();
+            this._context = context;
         }
 
-        public Task DeleteArticleAsync(int id)
+        // Add
+        public async Task<Article> AddArticleAsyn(Article model)
         {
-            throw new NotImplementedException();
+            _context.Articles.Add(model);
+            await _context.SaveChangesAsync();
+            return model;
         }
 
-        public Task<Article> EditArticleAsync(Article article)
+        // 출력
+
+        public async Task<List<Article>> GetArticlesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Articles.OrderByDescending(a => a.Id).ToListAsync();
+        }
+        public async Task<Article> GetArticleByIdAsync(int id)
+        {
+            //return await _context.Articles.FindAsync(id);
+            return await _context.Articles.Where(a => a.Id == id).SingleOrDefaultAsync();
         }
 
-        public Task<Article> GetAritleByIdAsync(int id)
+        // 수정
+        public async Task<Article> EditArticleAsync(Article model)
         {
-            throw new NotImplementedException();
+            _context.Entry(model).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return model;
         }
 
-        public Task<List<Article>> GetArticlesAsync()
+        // 삭제
+        public async Task DeleteArticleAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-        public Task<PagingResult<Article>> GetAllAsync(int pageIndex, int pageSize)
+            //var model = await _context.Articles.FindAsync(id);
+            var model = await _context.Articles.Where(m => m.Id == id).SingleOrDefaultAsync();
+            if(model != null)
+            {
+                _context.Articles.Remove(model);
+                await _context.SaveChangesAsync();
+            }
+        }        
+
+        // 페이징
+        public async Task<PagingResult<Article>> GetAllAsync(int pageIndex, int pageSize)
         {
-            throw new NotImplementedException();
+            var totalRecores = await _context.Articles.CountAsync();
+            var articles = await _context.Articles
+                .OrderByDescending(x => x.Id)
+                .Skip(pageIndex * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PagingResult<Article>(articles, totalRecores);
         }
+
+        
+
+        
     }
 }
