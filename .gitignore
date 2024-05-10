@@ -42,3 +42,7 @@
 /ArticleApp/.vs/ArticleApp/DesignTimeBuild/.dtbcache.v2
 /ArticleApp/.vs/ArticleApp/v17/.suo
 /ArticleApp/.vs/ArticleApp/v17/DocumentLayout.json
+/ArticleApp/ArticleApp.Models/obj/Debug/net8.0/ArticleApp.Models.assets.cache
+/ArticleApp/ArticleApp.Models/obj/ArticleApp.Models.csproj.nuget.dgspec.json
+/ArticleApp/ArticleApp.Models/obj/project.assets.json
+/ArticleApp/ArticleApp.Models/obj/project.nuget.cache
