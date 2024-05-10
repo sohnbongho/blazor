@@ -61,3 +61,6 @@
 /ArticleApp/ArticleApp.Models.Tests/obj/ArticleApp.Models.Tests.csproj.nuget.dgspec.json
 /ArticleApp/ArticleApp.Models.Tests/obj/project.assets.json
 /ArticleApp/ArticleApp.Models.Tests/obj/project.nuget.cache
+/ArticleApp/ArticleApp/obj/Debug/net8.0/ArticleApp.AssemblyInfoInputs.cache
+/ArticleApp/ArticleApp/obj/Debug/net8.0/ArticleApp.csproj.AssemblyReference.cache
+/ArticleApp/ArticleApp/obj/Debug/net8.0/ArticleApp.sourcelink.json
