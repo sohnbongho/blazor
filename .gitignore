@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+/ArticleApp/.vs/ArticleApp/FileContentIndex/c9a0fb24-e41c-4d25-a2e4-b76a0f7f0e76.vsidx
+/ArticleApp/ArticleApp.SqlServer/ArticleApp.SqlServer.dbmdl
+/ArticleApp/ArticleApp.SqlServer/ArticleApp.SqlServer.jfm
