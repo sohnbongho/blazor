@@ -30,6 +30,15 @@
 *.exe
 *.out
 *.app
-/ArticleApp/.vs/ArticleApp/FileContentIndex/c9a0fb24-e41c-4d25-a2e4-b76a0f7f0e76.vsidx
+/ArticleApp/.vs
+/ArticleApp/ArticleApp.Models/obj/Debug/net8.0
 /ArticleApp/ArticleApp.SqlServer/ArticleApp.SqlServer.dbmdl
 /ArticleApp/ArticleApp.SqlServer/ArticleApp.SqlServer.jfm
+
+
+*.pdb
+/ArticleApp/ArticleApp.SqlServer/bin/Debug
+/ArticleApp/ArticleApp.SqlServer/obj/Debug
+/ArticleApp/.vs/ArticleApp/DesignTimeBuild/.dtbcache.v2
+/ArticleApp/.vs/ArticleApp/v17/.suo
+/ArticleApp/.vs/ArticleApp/v17/DocumentLayout.json
