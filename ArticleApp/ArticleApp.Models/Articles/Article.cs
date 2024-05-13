@@ -18,7 +18,13 @@ namespace ArticleApp.Models.Articles
         /// </summary>
         //[Required]
         [Required(ErrorMessage = "제목을 입력하세요.")]
-        public string Title { get; set; } = string.Empty;
+        public string Title { get; set; }
+
+        /// <summary>
+        /// 내용
+        /// </summary>
+        [Required(ErrorMessage = "내용을 입력하세요.")]
+        public string Content { get; set; }
 
     }
 }

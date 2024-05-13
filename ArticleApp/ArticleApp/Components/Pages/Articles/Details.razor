@@ -17,6 +17,9 @@
                 <label for="id">Title: </label> @Model.Title
             </div>
             <div class="form-group">                
+                @Model.Content
+            </div>
+            <div class="form-group">                
                 <a href="/Articles/Edit/@Model.Id" class="btn btn-primary">Edit</a>
                 <a href="/Articles/Delete/@Model.Id" class="btn btn-danger">Delete</a>
                 <a href="/Articles" class="btn btn-secondary">List</a>
