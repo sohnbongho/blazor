@@ -1,14 +1,14 @@
 ﻿@page "/Articles"
 @page "/Articles/Index"
+@rendermode InteractiveServer
 
-@using ArticleApp.Models
-@using ArticleApp.Models.Articles
 @inject IArticleRepository ArticleRepository
 
 <h3>Index</h3>
 
 <div>
     <a href="/Articles/Create" class="btn btn-primary">Create</a>
+    
 </div>
 
 @if (articles == null)
@@ -50,6 +50,11 @@ else
     protected override async Task OnInitializedAsync()
     {
         articles = await ArticleRepository.GetArticlesAsync();
+    }
+    private void OnPrimaryButtonClick()
+    {
+        // 비동기 작업 수행
+        Console.WriteLine("Primary button clicked!");
     }
     
 }

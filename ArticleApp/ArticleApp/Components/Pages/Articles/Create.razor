@@ -1,22 +1,20 @@
 ﻿@page "/Articles/Create"
-
-@using ArticleApp.Models.Articles
+@rendermode InteractiveServer
 
 @inject NavigationManager NavigationManager
 @inject IArticleRepository ArticleRepository
 
 <h3>Create</h3>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12">            
             <EditForm Model="Model" OnValidSubmit="HandleValidSubmit" FormName="CreateArticleForm">
                 <DataAnnotationsValidator></DataAnnotationsValidator>
                 <ValidationSummary></ValidationSummary>
                 <div class="form-group">
                     <label for="Title">Title</label>
-                    <InputText id="txtTitle" class="form-control" placeholder="Enter Title"
-                               @bind-Value="@Model.Title"></InputText>
-                    <ValidationMessage For="@(() => Model.Title)"></ValidationMessage>
+                    <InputText id="txtTitle" class="form-control" placeholder="Enter Title" @bind-Value="@Model.Title"></InputText>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="/Articles" class="btn btn-secondary">List</a>
@@ -27,6 +25,7 @@
 
 @code {
     public Article Model { get; set; } = new Article();
+    public string Title = string.Empty;
 
     private async Task HandleValidSubmit()
     {
