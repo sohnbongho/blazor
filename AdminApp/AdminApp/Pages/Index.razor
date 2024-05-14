@@ -1,9 +1,22 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@inject NavigationManager NavigationManagerInjector
 
-<h1>Hello, world!</h1>
+@code{
+        
+    // 아래 코드는 문제가 있다. Exception발생
+    // protected override void OnInitialized()
+    // {
+    //     //NavigationManagerInjector.NavigateTo("/Home", true);
+    // }
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+    private bool _shouldNavigate = true;
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender )
+        {            
+            _shouldNavigate = false;
+            NavigationManagerInjector.NavigateTo("/Home", true);
+        }
+    }
+}
