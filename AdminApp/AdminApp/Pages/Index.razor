@@ -10,13 +10,13 @@
     //     //NavigationManagerInjector.NavigateTo("/Home", true);
     // }
 
-    private bool _shouldNavigate = true;
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender )
-        {            
-            _shouldNavigate = false;
-            NavigationManagerInjector.NavigateTo("/Home", true);
-        }
-    }
+    // private bool _shouldNavigate = true;
+    // protected override void OnAfterRender(bool firstRender)
+    // {
+    //     if (firstRender )
+    //     {            
+    //         _shouldNavigate = false;
+    //         NavigationManagerInjector.NavigateTo("/Home", true);
+    //     }
+    // }
 }
