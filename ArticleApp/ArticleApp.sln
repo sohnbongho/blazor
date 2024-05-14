@@ -9,7 +9,9 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ArticleApp.SqlServer", "Art
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleApp.Models.Tests", "ArticleApp.Models.Tests\ArticleApp.Models.Tests.csproj", "{4D18C061-FE51-4FEC-B2D7-B04632824E2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleApp(Web)", "ArticleApp\ArticleApp(Web).csproj", "{F6EC24AA-B33A-4835-82D9-86C5E17D68A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArticleApp", "ArticleApp\ArticleApp.csproj", "{F6EC24AA-B33A-4835-82D9-86C5E17D68A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminApp", "AdminApp\AdminApp.csproj", "{14E50D42-4EF8-4BFF-8111-8D0E0BB2C407}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{F6EC24AA-B33A-4835-82D9-86C5E17D68A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6EC24AA-B33A-4835-82D9-86C5E17D68A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6EC24AA-B33A-4835-82D9-86C5E17D68A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E50D42-4EF8-4BFF-8111-8D0E0BB2C407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E50D42-4EF8-4BFF-8111-8D0E0BB2C407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E50D42-4EF8-4BFF-8111-8D0E0BB2C407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E50D42-4EF8-4BFF-8111-8D0E0BB2C407}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

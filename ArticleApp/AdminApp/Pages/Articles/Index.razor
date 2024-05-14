@@ -1,0 +1,104 @@
+﻿@page "/Articles"
+@page "/Articles/Index"
+
+@inject IArticleRepository ArticleRepository
+
+@using Dul.Web
+@using Dul.Domain.Common
+
+@using AdminApp.Pages.Articles.Components
+
+<h3>Index</h3>
+
+<div>
+    <a href="/Articles/Create" class="btn btn-primary">Create</a>
+    <a href="/Articles/Manage" class="btn btn-primary">Manage</a>
+    @* <AuthorizeView>
+        <Authorized>
+
+        </Authorized>
+        <NotAuthorized>
+            <a href="/Articles/Manage" class="btn btn-primary">Manage</a>
+        </NotAuthorized>
+    </AuthorizeView>
+    <AuthorizeView Roles="Administrators, Managers">
+        <a href="/Articles/Manage" class="btn btn-primary">Manage</a>
+    </AuthorizeView> *@
+    
+</div> 
+
+@if (articles == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Creaed</th>                
+                <th>&nbsp;</th>                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var article in articles)
+            {
+                <tr>
+                    <td>@article.Id</td>
+                    <td>@article.Title</td>
+                    <td>@article.Content</td>
+                    <td>@article.Created.ToShortTimeString()</td>                    
+                    <td>
+                        <a href="/Articles/Details/@article.Id" class="btn btn-light">Details</a>
+                        <a href="/Articles/Edit/@article.Id" class="btn btn-light">Edit</a>
+                        <a href="/Articles/Delete/@article.Id" class="btn btn-light">Delete</a>
+                    </td>                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<ArticlePager Model="pager" PageIndexChanged="PageIndexChanged"></ArticlePager>
+
+
+@code {
+    // 페이저 기본값 설정
+    private PagerBase pager = new PagerBase
+    {
+        PageNumber = 1,
+        PageIndex = 0,      // PageNumber보다 1이 작은 값
+        PageSize = 2,       // 최대 한페이지에 표시하는 수
+        PagerButtonCount = 5, // 페이지 버튼 갯수
+    };
+
+    private List<Article> articles = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // [1] 전체 데이터 모두 출력
+        //articles = await ArticleRepository.GetArticlesAsync();
+
+        // [2] 페이징 처리된 데이터만 출력
+        PagingResult<Article> pagingData = await ArticleRepository.GetAllAsync(pager.PageIndex, pager.PageSize);
+        pager.RecordCount = pagingData.TotalRecords; // 총 레코드 수
+        articles = pagingData.Records.ToList(); // 페이징 처리된 레코드
+    }
+
+    // Pager버튼 클릭 콜백 메서드
+    private async Task PageIndexChanged(int pageIndex)
+    {
+        pager.PageIndex = pageIndex;
+        pager.PageNumber = pageIndex + 1;
+
+        var pagingData = await ArticleRepository.GetAllAsync(pager.PageIndex, pager.PageSize);
+        pager.RecordCount = pagingData.TotalRecords; // 총 레코드 수
+        articles = pagingData.Records.ToList(); // 페이징 처리된 레코드
+
+        StateHasChanged(); // 현재 컴포넌트 재로드
+    }
+
+}
