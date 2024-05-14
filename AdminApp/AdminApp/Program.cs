@@ -22,6 +22,10 @@ namespace AdminApp
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // Add services to the container.
+            builder.Services.AddControllersWithViews(); // View¿¡¼­ °¡Á®¿È
+
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
             builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
@@ -50,9 +54,14 @@ namespace AdminApp
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllers();
+            // Configure the HTTP request pipeline.
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");
+            app.MapRazorPages();
 
             app.Run();
         }
