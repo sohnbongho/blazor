@@ -99,3 +99,5 @@
 /AdminApp/AdminApp.Models/obj
 /AdminApp/AdminApp.SqlServer/bin/Debug
 /AdminApp/AdminApp.SqlServer/obj/Debug
+/AdminApp/.vs/ProjectEvaluation
+/AdminApp/AdminApp.SqlServer
