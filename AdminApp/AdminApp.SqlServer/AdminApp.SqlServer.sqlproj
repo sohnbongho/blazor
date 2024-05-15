@@ -56,5 +56,31 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="01_Identity" />
+    <Folder Include="DotNetNote" />
+    <Folder Include="DotNetNote\Stored Procedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="01_Identity\__EFMigrationsHistory.sql" />
+    <Build Include="01_Identity\AspNetRoleClaims.sql" />
+    <Build Include="01_Identity\AspNetRoles.sql" />
+    <Build Include="01_Identity\AspNetUserClaims.sql" />
+    <Build Include="01_Identity\AspNetUserLogins.sql" />
+    <Build Include="01_Identity\AspNetUserRoles.sql" />
+    <Build Include="01_Identity\AspNetUsers.sql" />
+    <Build Include="01_Identity\AspNetUserTokens.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_DeleteNote.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_GetCountNotes.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_ListNotes.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_ModifyNote.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_ReplyNote.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_SearchNoteCount.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_SearchNotes.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_ViewNote.sql" />
+    <Build Include="DotNetNote\Stored Procedures\DNN_WriteNote.sql" />
+    <Build Include="DotNetNote\Stored Procedures\NotesList.sql" />
+    <Build Include="DotNetNote\Stored Procedures\NotesSearchList.sql" />
+    <Build Include="DotNetNote\NoteComments.sql" />
+    <Build Include="DotNetNote\Notes.sql" />
   </ItemGroup>
 </Project>
