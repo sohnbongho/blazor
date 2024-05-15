@@ -95,3 +95,7 @@
 /AdminApp/.vs/AdminApp
 /AdminApp/AdminApp/bin/Debug/net6.0
 /AdminApp/AdminApp/obj
+/AdminApp/AdminApp.Models/bin/Debug/net6.0
+/AdminApp/AdminApp.Models/obj
+/AdminApp/AdminApp.SqlServer/bin/Debug
+/AdminApp/AdminApp.SqlServer/obj/Debug

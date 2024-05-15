@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminApp", "AdminApp\AdminApp.csproj", "{983DBF1E-AD9F-4C54-9940-FD524C9E3BCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminApp.Models", "AdminApp.Models\AdminApp.Models.csproj", "{ACDA563C-057E-4FC1-99FD-1C236A7AED1B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AdminApp.SqlServer", "AdminApp.SqlServer\AdminApp.SqlServer.sqlproj", "{F335C1C7-8F6C-4B53-9C43-407E3B45D4DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{983DBF1E-AD9F-4C54-9940-FD524C9E3BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{983DBF1E-AD9F-4C54-9940-FD524C9E3BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{983DBF1E-AD9F-4C54-9940-FD524C9E3BCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDA563C-057E-4FC1-99FD-1C236A7AED1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDA563C-057E-4FC1-99FD-1C236A7AED1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDA563C-057E-4FC1-99FD-1C236A7AED1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDA563C-057E-4FC1-99FD-1C236A7AED1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F335C1C7-8F6C-4B53-9C43-407E3B45D4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F335C1C7-8F6C-4B53-9C43-407E3B45D4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F335C1C7-8F6C-4B53-9C43-407E3B45D4DF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F335C1C7-8F6C-4B53-9C43-407E3B45D4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F335C1C7-8F6C-4B53-9C43-407E3B45D4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F335C1C7-8F6C-4B53-9C43-407E3B45D4DF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

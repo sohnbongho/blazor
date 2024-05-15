@@ -20,4 +20,8 @@
     <Folder Include="wwwroot\templates\landing\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AdminApp.Models\AdminApp.Models.csproj" />
+  </ItemGroup>
+
 </Project>
