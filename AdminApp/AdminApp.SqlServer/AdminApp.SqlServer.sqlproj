@@ -83,4 +83,7 @@
     <Build Include="DotNetNote\NoteComments.sql" />
     <Build Include="DotNetNote\Notes.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="AdminApp.SqlServer.publish.xml" />
+  </ItemGroup>
 </Project>

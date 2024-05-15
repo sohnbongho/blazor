@@ -2,21 +2,22 @@
 
 @inject NavigationManager NavigationManagerInjector
 
+
 @code{
         
     // 아래 코드는 문제가 있다. Exception발생
     // protected override void OnInitialized()
     // {
-    //     //NavigationManagerInjector.NavigateTo("/Home", true);
+    //     NavigationManagerInjector.NavigateTo("/Dashboard", true);
     // }
 
-    // private bool _shouldNavigate = true;
-    // protected override void OnAfterRender(bool firstRender)
-    // {
-    //     if (firstRender )
-    //     {            
-    //         _shouldNavigate = false;
-    //         NavigationManagerInjector.NavigateTo("/Home", true);
-    //     }
-    // }
+    private bool _shouldNavigate = true;
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender )
+        {            
+            _shouldNavigate = false;
+            NavigationManagerInjector.NavigateTo("/Dashboard", true);
+        }
+    }
 }
