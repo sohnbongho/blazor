@@ -57,6 +57,11 @@ app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
+if (app.Environment.IsDevelopment())
+{
+    CandidateDbInitializer.Initialize(app);
+}    
+
 app.Run();
 
 #region CandidateSeedData: Candidates 테이블에 기본 데이터 입력
