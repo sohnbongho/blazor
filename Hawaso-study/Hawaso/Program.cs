@@ -35,6 +35,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+
+    CandidateSeedData(app);
 }
 else
 {
@@ -56,3 +58,33 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
+
+#region CandidateSeedData: Candidates 테이블에 기본 데이터 입력
+// Candidates 테이블에 기본 데이터 입력
+static void CandidateSeedData(WebApplication app)
+{
+    using (var serviceScope = app.Services.CreateScope())
+    {
+        var services = serviceScope.ServiceProvider;
+        var candidateDbContext = services.GetRequiredService<CandidateAppDbContext>();
+
+        if (!candidateDbContext.Candidates.Any())
+        {
+            candidateDbContext.Candidates.Add(new Candidate
+            {
+                FirstName = "길동",
+                LastName = "홍",
+                IsEntollment = false,
+            });
+            candidateDbContext.Candidates.Add(new Candidate
+            {
+                FirstName = "두산",
+                LastName = "백",
+                IsEntollment = false,
+            });
+
+            candidateDbContext.SaveChanges();
+        }
+    }
+} 
+#endregion
