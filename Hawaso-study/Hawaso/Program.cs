@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -31,12 +30,20 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 var app = builder.Build();
 
+// 개발환경에서 Update-Database, Seed 데이터 추가
+if (app.Environment.IsDevelopment())
+{
+    await CheckCandidateDbMigrated(app.Services);
+    CandidateSeedData(app);
+    CandidateDbInitializer.Initialize(app);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
 
-    CandidateSeedData(app);
+    
 }
 else
 {
@@ -57,10 +64,7 @@ app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
-if (app.Environment.IsDevelopment())
-{
-    CandidateDbInitializer.Initialize(app);
-}    
+
 
 app.Run();
 
@@ -90,6 +94,20 @@ static void CandidateSeedData(WebApplication app)
 
             candidateDbContext.SaveChanges();
         }
+    }
+}
+#endregion
+
+
+#region CheckCandidateDbMigrated : 데이터베이스 마이그레이션
+// 데이터베이스 마이그레이션
+async Task CheckCandidateDbMigrated(IServiceProvider services)
+{
+    using var scope = services.CreateScope();
+    using var candidateContext = scope.ServiceProvider.GetService<CandidateAppDbContext>();
+    if (candidateContext is not null)
+    {
+        await candidateContext.Database.MigrateAsync();
     }
 } 
 #endregion
