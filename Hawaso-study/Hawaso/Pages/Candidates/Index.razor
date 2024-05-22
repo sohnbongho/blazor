@@ -4,7 +4,10 @@
 
 @using Hawaso.Models.Candidates
 @using Microsoft.EntityFrameworkCore
-@inject CandidateAppDbContext _Context;
+
+@* @inject CandidateAppDbContext _Context; *@
+@* DbContext Factory로 생성 *@
+@inject IDbContextFactory<CandidateAppDbContext> _ContextFactory;
 
 <PageTitle>Candidate List</PageTitle>
 <h1>Index</h1>
@@ -58,14 +61,14 @@ else
     </table>    
 }
 
-
-
 @code {
     // 현재 페이지에서 사용할 모델 또는 컬렉션
     private Candidate[]? Candidates{ get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Candidates = await _Context.Candidates.ToArrayAsync();
+        //Candidates = await _Context.Candidates.ToArrayAsync();
+        using var context = _ContextFactory.CreateDbContext();
+        Candidates = await context.Candidates.ToArrayAsync();
     }
 }

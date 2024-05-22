@@ -16,9 +16,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 // 새로운 DBContext 추가
-builder.Services.AddDbContext<CandidateAppDbContext>(options => 
-    options.UseSqlServer(connectionString));
-
+//builder.Services.AddDbContext<CandidateAppDbContext>(options => options.UseSqlServer(connectionString));
+// DBContext Factory 추가
+builder.Services.AddDbContextFactory<CandidateAppDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
