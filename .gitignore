@@ -104,3 +104,6 @@
 /Hawaso-study/.vs
 /Hawaso-study/Hawaso/bin/Debug/net7.0
 /Hawaso-study/Hawaso/obj
+/Hawaso-study/Hawaso.SqlServer/bin/Debug/Hawaso.SqlServer.dacpac
+/Hawaso-study/Hawaso.SqlServer/Hawaso.SqlServer.dbmdl
+/Hawaso-study/Hawaso.SqlServer/Hawaso.SqlServer.jfm
