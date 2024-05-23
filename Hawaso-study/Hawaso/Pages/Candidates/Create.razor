@@ -1,16 +1,27 @@
 ﻿@page "/Candidates/Create"
 
+@inject IDbContextFactory<CandidateAppDbContext> _ContextFactory
+
 <PageTitle>Candidate Create</PageTitle>
 
 <h1>Create</h1>
 
 <h4>Candidate</h4>
 <hr />
+
+
+@if(!String.IsNullOrEmpty(StatusMessage))
+{
+    <div class="alert alert-success">
+        @StatusMessage
+    </div>
+}
+
 <div class="row">
     <div class="col-md-4">
         @if (Model is not null)
         {
-            <EditForm Model="@Model">
+            <EditForm Model="@Model" OnValidSubmit="FormSubmit">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
 
@@ -50,6 +61,7 @@
 
 @code {
     public Candidate? Model { get; set; }
+    public string? StatusMessage{ get; set; }
 
     protected override void OnInitialized()
     {
@@ -62,5 +74,25 @@
         Model = new();
     }
 
+    private async Task FormSubmit()
+    {
+        try
+        {
+            if (Model != null)
+            {
+                using (var context = _ContextFactory.CreateDbContext())
+                {
+                    context.Candidates.Add(Model);
+                    await context.SaveChangesAsync();
+                }
+                StatusMessage = "Success";
+            }
+        }
+        catch(Exception ex)
+        {
+            StatusMessage = "Error";
+        }
+        
+    }
 
 }
