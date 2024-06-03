@@ -24,7 +24,7 @@
     <div class="col-md-4">
         @if (Model is not null)
         {
-            <EditForm Model="@Model" OnValidSubmit="FormSubmit">
+            <EditForm Model="@Model" OnValidSubmit="FormSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
                 <DataAnnotationsValidator />
                 <ValidationSummary />
 
@@ -80,6 +80,10 @@
         Model = new();
     }
 
+    /// <summary>
+    /// 유효성 검사를 통과했을 때 처리기
+    /// </summary>
+    /// <returns></returns>
     private async Task FormSubmit()
     {        
         if (Busy)
@@ -113,7 +117,14 @@
         {
             Busy = false;
         }
+    }
 
+    /// <summary>
+    /// 유효성 검사가 실패시 들어오는 로직
+    /// </summary>
+    protected void HandleInvalidSubmit()
+    {
+        StatusMessage = "";                
     }
 
 }
