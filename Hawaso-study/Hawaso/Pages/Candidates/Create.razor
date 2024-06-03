@@ -97,14 +97,15 @@
             {
                 Model.Age = 0;
 
-                using (var context = _ContextFactory.CreateDbContext())
-                {
-                    context.Candidates.Add(Model);
-                    await context.SaveChangesAsync();
-                    // await Task.Delay(5550);
+                using var context = _ContextFactory.CreateDbContext();
+                context.Candidates.Add(Model);
+                await context.SaveChangesAsync();
+                // await Task.Delay(5550);
 
-                    Model = new();
-                }
+                Model = new()
+                {
+                    IsEntollment = Model.IsEntollment,
+                };
                 StatusMessage = "Success";
                 //StatusMessage = "Error";                
             }
