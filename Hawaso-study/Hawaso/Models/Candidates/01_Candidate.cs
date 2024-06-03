@@ -74,6 +74,8 @@ namespace Hawaso.Models.Candidates
         [StringLength(35)]
         public string? LicenseNumber { get; set; }
 
+        public int? Age { get; set; }
+
     }
 
 }

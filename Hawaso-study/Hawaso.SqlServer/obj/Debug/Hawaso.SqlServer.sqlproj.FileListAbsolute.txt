@@ -4,3 +4,9 @@ D:\00-git\blazor\Hawaso-study\Hawaso.SqlServer\bin\Debug\Hawaso.SqlServer.pdb
 D:\00-git\blazor\Hawaso-study\Hawaso.SqlServer\obj\Debug\Hawaso.SqlServer.sqlproj.AssemblyReference.cache
 D:\00-git\blazor\Hawaso-study\Hawaso.SqlServer\obj\Debug\Hawaso.SqlServer.dll
 D:\00-git\blazor\Hawaso-study\Hawaso.SqlServer\obj\Debug\Hawaso.SqlServer.pdb
+D:\01-git\Blazor\Hawaso-study\Hawaso.SqlServer\bin\Debug\Hawaso.SqlServer.dacpac
+D:\01-git\Blazor\Hawaso-study\Hawaso.SqlServer\bin\Debug\Hawaso.SqlServer.dll
+D:\01-git\Blazor\Hawaso-study\Hawaso.SqlServer\bin\Debug\Hawaso.SqlServer.pdb
+D:\01-git\Blazor\Hawaso-study\Hawaso.SqlServer\obj\Debug\Hawaso.SqlServer.sqlproj.AssemblyReference.cache
+D:\01-git\Blazor\Hawaso-study\Hawaso.SqlServer\obj\Debug\Hawaso.SqlServer.dll
+D:\01-git\Blazor\Hawaso-study\Hawaso.SqlServer\obj\Debug\Hawaso.SqlServer.pdb

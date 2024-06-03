@@ -91,19 +91,21 @@
         {
             if (Model != null)
             {
+                Model.Age = 0;
+
                 using (var context = _ContextFactory.CreateDbContext())
                 {
                     context.Candidates.Add(Model);
                     await context.SaveChangesAsync();
                     // await Task.Delay(5550);
+
+                    Model = new();
                 }
                 StatusMessage = "Success";
-                //StatusMessage = "Error";
-
-                Model = new();
+                //StatusMessage = "Error";                
             }
         }
-        catch(Exception ex)
+        catch(Exception)
         {
             StatusMessage = "Error";
         }

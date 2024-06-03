@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{15a2f345-20bb-4bd9-8aa6-323531fdb148}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -64,5 +64,8 @@
   <ItemGroup>
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
     <Build Include="dbo\Tables\Candidates.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Hawaso.SqlServer.publish.xml" />
   </ItemGroup>
 </Project>

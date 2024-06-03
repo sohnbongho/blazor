@@ -21,6 +21,7 @@
     [SSN]                 NVARCHAR (MAX) NULL,
     [SecondaryPhone]      NVARCHAR (35)  NULL,
     [State]               NVARCHAR (2)   NULL,
+    [Age]                 INT   NULL,
     CONSTRAINT [PK_Candidates] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
