@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅</title>
+</head>
+<body>
+    <div>
+        <div>아이디</div><input type="text" id="userid" />
+        <br />
+        <div>메시지</div><input type="text" id="message" />
+        <br />
+        <input type="button" id="sendbtn" value="보내기" disabled="disabled" />
+    </div>
+    <br />
+    <div id="chatlog"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script type="text/javascript">
+        const hubConn = new signalR.HubConnectionBuilder()
+            .withUrl("/mychat", { transport: signalR.HttpTransportType.WebSockets })
+            .configureLogging(signalR.LogLevel.Debug)//ignalR.LogLevel.None
+            .build();
+        hubConn.keepAliveIntervalInMilliseconds = 1000 * 15;//최소 설정가능한 값5초.
+        hubConn.serverTimeoutInMilliseconds = 1000 * 30;
+
+        hubConn.onclose(function (event) {
+            alert("접속끊김.재연결 필요.");
+        });
+
+
+        hubConn.start().then(function () {
+            document.getElementById("sendbtn").disabled = false;
+        })
+            .catch(function (e) {
+                return console.error(e.toString());
+            });
+
+        document.getElementById("sendbtn").addEventListener("click", function () {
+            const userid = document.getElementById("userid").value;
+            const message = document.getElementById("message").value;
+
+            hubConn.invoke("Send", message, userid)
+                .catch(function (e) {
+                    return console.error(e.toString());
+                });
+        });
+
+        hubConn.on("receive", function (message, userid) {
+
+            const bElem = document.createElement("b");
+            bElem.textContent = userid + ":";
+            const pElem = document.createElement("p");
+            pElem.appendChild(bElem);
+            pElem.appendChild(document.createTextNode(message));
+
+            document.getElementById("chatlog").appendChild(pElem);
+        });
+    </script>
+</body>
+</html>
