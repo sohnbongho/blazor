@@ -1,3 +1,6 @@
+using Akka.Actor;
+using SignalRStudy.Services;
+
 namespace SignalRStudy
 {
     public class Program
@@ -13,6 +16,14 @@ namespace SignalRStudy
                 // 30초 초과시, 서버에서 연결을 끊어버림
                 options.ClientTimeoutInterval = System.TimeSpan.FromSeconds(30);
             });
+
+            // Akka.net 관련 추가
+            builder.Services.AddSingleton<ActorSystem>(provider =>
+            {
+                var actorSystem = ActorSystem.Create("MyActorSystem");                
+                return actorSystem;
+            });            
+            builder.Services.AddHostedService<AkkaService>();
 
 
             var app = builder.Build();
