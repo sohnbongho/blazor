@@ -14,7 +14,7 @@ namespace Hawaso.Models.Candidates
             // Empty
         }
 
-        public DbSet<Candidate> Candidates { get; set; } = null;
+        public DbSet<Candidate> Candidates { get; set; } = null!;
     }
 
 }
