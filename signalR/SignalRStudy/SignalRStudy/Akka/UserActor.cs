@@ -32,7 +32,7 @@ public class UserActor : ReceiveActor
             Console.WriteLine($"Received message for {_connectionId}: {message.Message}");
             
             // 일반 유저에게 알림
-            await _hubContext.Clients.Client(_connectionId).SendAsync("receive", message.Message, message.UserId);
+            //await _hubContext.Clients.Client(_connectionId).SendAsync("receive", message.Message, message.UserId);
             
             // 전체 유저에게 알림
             await _hubContext.Clients.All.SendAsync("receive", message.Message, message.UserId); 

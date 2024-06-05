@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SecondClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="533*"/>
+            <ColumnDefinition Width="267*"/>
+        </Grid.ColumnDefinitions>
         <TextBox x:Name="textBoxUserId" HorizontalAlignment="Left" Margin="79,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBoxMessage" HorizontalAlignment="Left" Margin="79,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
-        <Button x:Name="btnSend" Content="Button" HorizontalAlignment="Left" Margin="79,98,0,0" VerticalAlignment="Top" Height="33" Width="60"/>
-        <ListBox x:Name="chatLog" Margin="0,217,0,0"/>
+        <Button x:Name="btnSend" Content="Button" HorizontalAlignment="Left" Margin="79,98,0,0" VerticalAlignment="Top" Height="33" Width="60" PreviewMouseLeftButtonUp="btnSend_PreviewMouseLeftButtonUp"/>
+        <ListBox x:Name="chatLog" Margin="0,217,0,0" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

@@ -38,13 +38,27 @@ public class MessageHub : Hub
         await base.OnDisconnectedAsync(exception);
     }
 
-    public void Send(string message, string userId)
+    public async Task Send(string message, string userId)
     {
-        string connectionId = Context.ConnectionId;
-        if (_userActors.TryGetValue(connectionId, out var userActor))
+        if (false == string.IsNullOrEmpty(userId))
         {
-            userActor.Tell(new UserMessage(userId, message));
+            await Clients.All.SendAsync("receive", message, userId);
         }
+        else
+        {
+            if(userId != null)
+            {
+                // 나 이외에 다른 유저들에게 메시지를 보낸다.
+                await Clients.Others.SendAsync("notify", "채팅방에서 1명이 퇴장했습니다.");
+            }
+        }
+        
+
+        //string connectionId = Context.ConnectionId;
+        //if (_userActors.TryGetValue(connectionId, out var userActor))
+        //{
+        //    userActor.Tell(new UserMessage(userId, message));
+        //}
         //await Clients.All.SendAsync("receive", message, userId);
         //await Clients.Client(connectionId).SendAsync("receive", message, userId);
     }
