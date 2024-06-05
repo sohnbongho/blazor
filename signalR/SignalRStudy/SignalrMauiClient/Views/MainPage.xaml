@@ -7,18 +7,18 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <ActivityIndicator IsRunning="True" IsVisible="False"/>
-            <Entry Text="" />
-            <Entry Text="" />
-            <Button IsEnabled="True"/>
-            <ListView>
+            <ActivityIndicator IsRunning="{Binding Path=IsWorking}" IsVisible="{Binding IsWorking}"/>
+            <Entry Text="{Binding UserId}" />
+            <Entry Text="{Binding Message}" />
+            <Button IsEnabled="{Binding IsConnected}" Command="{Binding SendCommand}"/>
+            <ListView ItemsSource="{Binding MsgCollection}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout>
-                                    <Label Text=""/>
-                                    <Label Text=""/>
+                                    <Label Text="{Binding ListViewUserId}"/>
+                                    <Label Text="{Binding ListViewMsg}"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>                        
