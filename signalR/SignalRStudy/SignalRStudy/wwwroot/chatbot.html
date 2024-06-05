@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script type="text/javascript">
         const hubConn = new signalR.HubConnectionBuilder()
-            .withUrl("/mychat", { transport: signalR.HttpTransportType.WebSockets })
+            .withUrl("http://58.181.61.21:8080/mychat", { transport: signalR.HttpTransportType.WebSockets })
             .configureLogging(signalR.LogLevel.Debug)//ignalR.LogLevel.None
             .build();
         hubConn.keepAliveIntervalInMilliseconds = 1000 * 15;//최소 설정가능한 값5초.
