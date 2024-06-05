@@ -114,3 +114,5 @@
 /signalR/SignalRStudy/SecondClient/bin/Debug/net8.0-windows
 /signalR/SignalRStudy/SecondClient/obj/Debug/net8.0-windows
 /signalR/SignalRStudy/SecondClient/obj
+/signalR/SignalRStudy/SignalrMauiClient/obj
+/signalR/SignalRStudy/SignalrMauiClient/bin/Debug
