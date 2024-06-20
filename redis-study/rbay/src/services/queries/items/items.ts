@@ -1,7 +1,33 @@
 import type { CreateItemAttrs } from '$services/types';
+import { client } from '$services/redis';
+import { serialize } from './serialize';
+import { genId } from '$services/utils';
+import {itemsKey } from '$services/keys';
+import { deserialize } from './deserialize';
 
-export const getItem = async (id: string) => {};
+export const getItem = async (id: string) => {
+    const item = await client.hGetAll(itemsKey(id));
+    
+    if(Object.keys(item).length === 0){
+        return null;
+    }
 
-export const getItems = async (ids: string[]) => {};
+    return deserialize(id, item);
+};
 
-export const createItem = async (attrs: CreateItemAttrs, userId: string) => {};
+export const getItems = async (ids: string[]) => {
+
+};
+
+export const createItem = async (attrs: CreateItemAttrs) => {
+    const id = genId();
+
+    const serialized = serialize(attrs);
+
+    await client.hSet(itemsKey(id), serialized);
+
+    return id;
+};
+
+// 테스트용 생성된 아이템
+// http://localhost:3000/items/036416
