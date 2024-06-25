@@ -17,9 +17,7 @@ export const itemsByEndingTime = async (
 			offset,
 			count
 		}
-	});	
-
-	console.log(ids);
+	});		
 
 	const results = await Promise.all(ids.map(id =>  client.hGetAll(itemsKey(id))));
 
